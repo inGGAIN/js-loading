@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+</head>
+<style>
+    #app{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+</style>
+<body>
+    <div id="app"></div>
+
+    <script>
+        onload = function () {
+            // deklarasi variabel 
+            let id = document.getElementById("app")
+            let loading = document.createElement("div")
+
+            // isi konten 
+            loading.textContent = "Loading"
+            loading.style.fontSize = "28px"
+            id.appendChild(loading)
+
+            // waktu yg dibutuhkan utk ubah DOM 
+            let loaded = setInterval(() => {
+                loading.textContent = loading.textContent + "."
+            }, 1000)
+
+            setTimeout(() => {
+                clearInterval(loaded)
+                loading.textContent = "SELAMAT DATANG"
+            }, 4000)
+        }
+    </script>
+</body>
+</html>
